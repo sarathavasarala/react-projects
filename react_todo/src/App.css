@@ -1,0 +1,20 @@
+body{
+  background: #eee;
+}
+#root{
+  width: 300px;
+  margin: auto;
+}
+.todo-item{
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.strike{
+  text-decoration: line-through;
+}
+.no-strike{
+  text-decoration: underline;
+}
