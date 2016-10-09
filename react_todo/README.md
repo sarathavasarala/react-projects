@@ -1,1 +1,1 @@
-a todo app using react. still a work in progress :/
+a todo app using react!
