@@ -7,7 +7,7 @@ var AppHeading = React.createClass({
   render() {
     return (
             <div>
-              <h2> Your To-do List </h2>
+              <h2> Todo List </h2>
             </div>
            )
   }
@@ -35,7 +35,7 @@ var TodoList = React.createClass({
                     });
     return (
               <div>
-                <input type="text" onKeyDown={this.handleKeys} ref="myInput"/>
+                <input type="text" className="userInput" onKeyDown={this.handleKeys} ref="myInput"/>
                 <button onClick={this.add}> Add </button>
                 {listItems}   
               </div>
