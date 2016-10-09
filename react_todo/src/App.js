@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-var data = ["get milk", "push this to github", "stay awesome"];
+var data = [];
 
 var AppHeading = React.createClass({
   render() {
