@@ -12,9 +12,9 @@ body{
   width: 100%;
   margin-bottom: 10px;
 }
+.todo-item label input{
+  margin-right: 10px;
+}
 .strike{
   text-decoration: line-through;
-}
-.no-strike{
-  text-decoration: underline;
 }

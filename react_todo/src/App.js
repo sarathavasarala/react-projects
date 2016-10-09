@@ -1,35 +1,76 @@
 import React, { Component } from 'react';
 import './App.css';
 
-var TodoItem = React.createClass({
-  getInitialState() {
-    return {
-            checklistArray:[]
-           }
-  },
-  handleClick() {
-    var arrayvar = this.state.checklistArray;
-    arrayvar.push(this.refs.myInput.value);
-    this.setState({ checklistArray: arrayvar });
-    this.refs.myInput.value = ""
-  },
+var data = ["get milk", "push this to github", "stay awesome"];
+
+var AppHeading = React.createClass({
   render() {
-    var items = this.state.checklistArray
     return (
             <div>
-              <h1> Your Todo List </h1>
-                {items.map(function(item, index){
-                  return <div className="todo-item" key={ index }>
-                            <label>
-                              <span>{item}</span>
-                            </label>
-                          </div>;
-                })}
-              <input ref="myInput" type="text" />
-              <button onClick={this.handleClick}> Add </button>
+              <h2> Your To-do List </h2>
             </div>
            )
   }
 });
 
-export default TodoItem;
+var TodoList = React.createClass({
+  getInitialState() {
+    return {data: data}
+  },
+  add() {
+    var newData = this.state.data;
+    newData.push(this.refs.myInput.value);
+    this.setState({data:newData});
+    this.refs.myInput.value="";
+  },
+  handleKeys(e) {
+    if(e.keyCode===13){
+      this.add();
+      this.refs.myInput.value="";
+    }
+  },
+  render() {
+    var listItems = this.state.data.map(function(val, i){
+                      return <TodoItem key={i}>{val}</TodoItem>
+                    });
+    return (
+              <div>
+                <input type="text" onKeyDown={this.handleKeys} ref="myInput"/>
+                <button onClick={this.add}> Add </button>
+                {listItems}   
+              </div>
+            ) 
+  }
+});
+
+var TodoItem = React.createClass({
+  getInitialState() {
+    return {checked:false}
+  },
+  handleStateChange() {
+    this.setState({checked:!this.state.checked})
+  },
+  render() {
+    return (
+              <div className="todo-item">
+                <label>
+                  <input type="checkbox" checked={this.state.checked} onChange={this.handleStateChange} />
+                  <span className={this.state.checked?"strike":"default"}>{this.props.children}</span>
+                </label>
+              </div>
+            )
+  }
+});
+
+var TodoApp = React.createClass({
+  render() {
+    return (
+              <div>
+                <AppHeading/>
+                <TodoList/>
+              </div>
+           )
+  }
+});
+
+export default TodoApp;
