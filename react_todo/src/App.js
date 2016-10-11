@@ -7,7 +7,7 @@ var AppHeading = React.createClass({
   render() {
     return (
             <div>
-              <h2> Todo List </h2>
+              <h2 className="text-xs-center"> Todo List </h2>
             </div>
            )
   }
@@ -26,7 +26,6 @@ var TodoList = React.createClass({
   handleKeys(e) {
     if(e.keyCode===13){
       this.add();
-      this.refs.myInput.value="";
     }
   },
   render() {
@@ -35,8 +34,12 @@ var TodoList = React.createClass({
                     });
     return (
               <div>
-                <input type="text" className="userInput" onKeyDown={this.handleKeys} ref="myInput"/>
-                <button onClick={this.add}> Add </button>
+                <div className="input-group">
+                  <input type="text" className="form-control" onKeyDown={this.handleKeys} ref="myInput" placeholder="type your tasks here..."/>
+                  <span className="input-group-btn">
+                    <button className="btn btn-primary" type="button" onClick={this.add}>Add</button>
+                  </span>
+                </div>
                 {listItems}   
               </div>
             ) 
@@ -65,7 +68,7 @@ var TodoItem = React.createClass({
 var TodoApp = React.createClass({
   render() {
     return (
-              <div>
+              <div className="app-container">
                 <AppHeading/>
                 <TodoList/>
               </div>
