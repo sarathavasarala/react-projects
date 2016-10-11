@@ -15,13 +15,21 @@ var AppHeading = React.createClass({
 
 var TodoList = React.createClass({
   getInitialState() {
-    return {data: data}
+    return {
+            data: data,
+            error: false
+           }
   },
   add() {
-    var newData = this.state.data;
-    newData.push(this.refs.myInput.value);
-    this.setState({data:newData});
-    this.refs.myInput.value="";
+    if(this.refs.myInput.value.trim().length!==0){
+      var newData = this.state.data;
+      newData.push(this.refs.myInput.value);
+      this.setState({data:newData, error:false});
+      this.refs.myInput.value="";
+    }
+    else{
+      this.setState({error:true})
+    }
   },
   handleKeys(e) {
     if(e.keyCode===13){
@@ -40,6 +48,7 @@ var TodoList = React.createClass({
                     <button className="btn btn-primary" type="button" onClick={this.add}>Add</button>
                   </span>
                 </div>
+                <div className={this.state.error===false?"text-hide":"error"}> The task cannot be empty! </div>
                 {listItems}   
               </div>
             ) 

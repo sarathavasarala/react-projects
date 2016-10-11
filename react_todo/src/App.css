@@ -12,7 +12,7 @@ body
 .input-group
 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .todo-item
 {
@@ -49,4 +49,9 @@ body
 
     border: 1px solid #999;
     background: white;
+}
+.error
+{
+    color: red;
+    margin-bottom: 10px;
 }
