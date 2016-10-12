@@ -5,7 +5,7 @@ module.exports = {
     entry: "./my_code/main.js",
     output: {
         path: "generated_code",
-        filename: "bundle.js"
+        filename: "bundle.min.js"
     },
     devServer:{
         inline:true,
