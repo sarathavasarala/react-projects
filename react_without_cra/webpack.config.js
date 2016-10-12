@@ -25,10 +25,10 @@ module.exports = {
                 query: {
                     presets: ['es2015', 'react']
                 }
-            },
+            }
         ]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({minimize: true})
+        new webpack.optimize.UglifyJsPlugin({minimize: true, comments: false})
     ]
 };
