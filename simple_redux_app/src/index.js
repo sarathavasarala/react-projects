@@ -1,15 +1,16 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import Text from './components/Text'
-import reducer from './reducers/reducers'
+import { Provider } from 'react-redux'
+import commentReducer from './reducers/commentReducer'
+import RootComponent from './components/RootComponent'
 
-let store = createStore(reducer)
+// Create a store with commentReducer
+let store = createStore(commentReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 render(
   <Provider store={store}>
-    <Text />
+    <RootComponent />
   </Provider>,
   document.getElementById('root')
 )
