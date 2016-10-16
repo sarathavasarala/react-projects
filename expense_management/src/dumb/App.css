@@ -1,0 +1,38 @@
+body{
+	background: #eee;
+}
+.mt-10{
+	margin-top: 10px;
+}
+.mt-20{
+	margin-top: 20px;
+}
+.mb-10{
+	margin-bottom: 10px
+}
+.mb-20{
+	margin-bottom: 20px;
+}
+.custom-form .form-control,.custom-form .btn {
+	border-radius: 0;
+}
+.custom-table table{
+	background: white;
+}
+.custom-form input.form-control{
+	width: 100%;
+}
+.padding-reset, .custom-form .col-xs-3{
+	padding-left: 0;
+	padding-right: 0;
+}
+.custom-form input[type="date"] {
+    padding: 6px;
+}
+.custom-form .Select-control {
+    padding: 1px;
+    border-radius: 0;
+}
+.Select-value{
+	padding-top: 2px;
+}
