@@ -28,7 +28,8 @@ let AddExpense = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     this.props.dispatch(addExpense(this.refs.name.value.trim(), this.refs.date.value.trim(), this.refs.amount.value.trim(), this.state.selectedValue.label))
-    this.refs.name.value = this.refs.date.value = this.refs.amount.value  = "";
+    this.refs.name.value = this.refs.amount.value  = "";
+    this.refs.date.value = new Date().toDateInputValue();
     this.setState({selectedValue:""});
   },
   componentDidMount: function() {
@@ -48,14 +49,14 @@ let AddExpense = React.createClass({
               <input className="form-control" placeholder="Date" type="date" ref="date" name="date" required/>
             </div>
             <div className="col-xs-3">
-              <input className="form-control" placeholder="Amount" type="text" ref="amount" name="amount" required/>
+              <input className="form-control" placeholder="Amount" type="number" ref="amount" name="amount" required/>
             </div>
             <div className="col-xs-3">
               <Select
                   name="form-field-name"
                   ref="expenseType"
                   options={options}
-                  value= {this.state.selectedValue}
+                  value={this.state.selectedValue}
                   onChange={this.handleSelectChange}
                   placeholder="Expense Type"
               />

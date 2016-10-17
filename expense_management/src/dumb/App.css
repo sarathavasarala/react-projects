@@ -36,3 +36,6 @@ body{
 .Select-value{
 	padding-top: 2px;
 }
+input:required {
+    box-shadow:none !important;
+}

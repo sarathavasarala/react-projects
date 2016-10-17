@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ExpensesTable from '../dumb/ExpensesTable'
-
+import { removeExpense } from '../actions/actions'
 
 const mapStateToProps = (state) => {
   return {
@@ -8,8 +8,15 @@ const mapStateToProps = (state) => {
   };
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onRemove: (id) => {
+      dispatch(removeExpense(id))
+    }
+  }
+}
 const ExpenseShow = connect(
-  mapStateToProps
+  mapStateToProps, mapDispatchToProps
 )(ExpensesTable)
 
 export default ExpenseShow

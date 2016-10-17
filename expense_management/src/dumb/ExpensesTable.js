@@ -2,13 +2,14 @@ import React from 'react'
 import '../dumb/App.css';
 import '../dumb/bootstrap.min.css';
 
-let ExpensesTable = ({ state }) => {
+let ExpensesTable = ({ state, onRemove }) => {
   let tableRows=state.map(function(val, i){
     return (<tr key={val.id}>
       <td> {val.name} </td>
       <td> {val.amount} </td>
       <td> {val.date} </td>
       <td> {val.expenseType} </td>
+      <td> <div onClick={() => onRemove(i)} className="btn btn-sm btn-primary"> Delete </div> </td>
     </tr>)
   })
   return (
@@ -20,6 +21,7 @@ let ExpensesTable = ({ state }) => {
             <th>Amount</th>
             <th>Date</th>
             <th>Type</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

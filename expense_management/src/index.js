@@ -6,7 +6,7 @@ import reducer from './reducers/reducer'
 import App from './dumb/App'
 
 
-let store = createStore(reducer)
+let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 render(
 		<Provider store={store}>
