@@ -1,0 +1,81 @@
+html
+{
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after
+{
+    box-sizing: inherit;
+}
+body
+{
+    font-family: 'Lato', sans-serif;
+
+    background: #eee;
+}
+.wrapper
+{
+    width: 700px;
+    margin: 20px auto;
+}
+.add-question
+{
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    cursor: pointer;
+    transition: .2s ease all;
+    text-align: center;
+
+    border: 2px dashed #999;
+    background: #f2f2f2;
+}
+.add-question:hover
+{
+    background: white;
+}
+.quiz-card
+{
+    margin-bottom: 20px;
+    padding: 20px;
+
+    background: white;
+}
+.quiz-question
+{
+    margin-bottom: 10px;
+    padding: 20px;
+
+    background: #f2f2f2;
+}
+.option-wrapper > div
+{
+    font-weight: bold;
+
+    display: inline-block;
+
+    width: calc(50% - 5px);
+    margin-bottom: 10px;
+    padding: 15px;
+
+    vertical-align: top;
+
+    border: 1px solid #ddd;
+}
+
+.option-wrapper > div:nth-of-type(odd)
+{
+    margin-right: 10px;
+}
+.create-card textarea, .create-card .option-wrapper > div input{
+  width: 100%;
+  padding: 15px;
+}
+.quiz-card.create-card .quiz-question{
+  padding:0;
+}
+.quiz-card.create-card .option-wrapper > div{
+  padding: 0;
+}
