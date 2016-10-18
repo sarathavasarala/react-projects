@@ -1,23 +1,17 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import QuestionList from './QuestionList'
-import AddQuestion from './AddQuestion'
+import { Provider } from 'react-redux'
+import { render } from 'react-dom'
+import { createStore } from 'redux'
+import App from './mix/App'
+import reducer from './reducers/reducer'
 import './main.css'
 
+let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-var QuizPage = React.createClass({
-  render(){
-    return (
-        <div className="wrapper">
-          <QuestionList/>
-          <AddQuestion/>
-        </div>
-      )
-  }
-});
 
-ReactDOM.render(
-  <QuizPage />,
-  document.getElementById('root')
-);
-
+render(
+        <Provider store={store}>
+          <App/>
+        </Provider>,
+        document.getElementById('root')
+      );
