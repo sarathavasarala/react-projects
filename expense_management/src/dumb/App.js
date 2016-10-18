@@ -4,14 +4,18 @@ import ExpenseShow from '../smart/ExpenseShow'
 import './App.css';
 
 const App = () => (
-  <div className="container-fluid">
-  	<div className="col-lg-8">
-    	<AddExpense />
-    	<ExpenseShow />
-    </div>
-    <div className="col-lg-4">
-    	
-    </div>
+  <div className="wrapper">
+	<div className="heading">
+		<div>Expense Tracker!</div>
+	</div>
+	<div className="container-fluid">
+		<div className="col-lg-12">
+			<div className="container">
+				<AddExpense />
+				<ExpenseShow />
+			</div>
+		</div>
+	</div>
   </div>
 )
 

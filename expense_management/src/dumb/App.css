@@ -1,41 +1,88 @@
-body{
-	background: #eee;
+body
+{
+    font-family: 'Lato', sans-serif;
+
+    background: #eee;
 }
-.mt-10{
-	margin-top: 10px;
+.mt-10
+{
+    margin-top: 10px;
 }
-.mt-20{
-	margin-top: 20px;
+.mt-20
+{
+    margin-top: 20px;
 }
-.mb-10{
-	margin-bottom: 10px
+.mb-10
+{
+    margin-bottom: 10px;
 }
-.mb-20{
-	margin-bottom: 20px;
+.mb-20
+{
+    margin-bottom: 20px;
 }
-.custom-form .form-control,.custom-form .btn {
-	border-radius: 0;
+.custom-form .form-control,
+.custom-form .btn
+{
+    border-radius: 0;
 }
-.custom-table table{
-	background: white;
+.custom-table table
+{
+    background: white;
 }
-.custom-form input.form-control{
-	width: 100%;
+.custom-form input.form-control
+{
+    width: 100%;
 }
-.padding-reset, .custom-form .col-xs-3{
+.padding-reset,
+.custom-form .col-xs-3
+{
+    padding-right: 0;
+    padding-left: 0;
+}
+.custom-form .Select-control
+{
+    padding: 1px;
+
+    border-radius: 0;
+}
+.Select-value
+{
+    padding-top: 2px;
+}
+input:required
+{
+    box-shadow: none !important;
+}
+.react-datepicker__input-container
+{
+    width: 100%;
+}
+.react-datepicker__input-container input
+{
+    width: 100%;
+    margin: 0;
+    padding: 6px;
+
+    border: 1px solid rgba(0,0,0,.15);
+}
+.heading > div
+{
+    font-size: 50px;
+    font-weight: 900;
+}
+.heading
+{
+    padding-top: 30px;
+    padding-bottom: 30px;
+
+    text-align: center;
+
+    background: powderblue;
+}
+.wrapper .container-fluid{
 	padding-left: 0;
 	padding-right: 0;
 }
-.custom-form input[type="date"] {
-    padding: 6px;
-}
-.custom-form .Select-control {
-    padding: 1px;
-    border-radius: 0;
-}
-.Select-value{
-	padding-top: 2px;
-}
-input:required {
-    box-shadow:none !important;
+.custom-table table{
+	border:1px solid #ddd;
 }
