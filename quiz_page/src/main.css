@@ -181,6 +181,8 @@ body
 }
 .quiz-question
 {
+    font-weight: bold;
+
     margin-bottom: 10px;
     padding: 20px;
 
@@ -188,8 +190,6 @@ body
 }
 .option-wrapper > div
 {
-    font-weight: bold;
-
     display: inline-block;
 
     width: calc(50% - 5px);
@@ -213,10 +213,9 @@ body
     width: 100%;
     padding: 15px;
 
-    outline-color: transparent;
-
     border: 1px solid #ddd;
     border-radius: 0;
+    outline-color: transparent;
     box-shadow: none;
 }
 .create-card textarea:focus,
@@ -244,4 +243,34 @@ body
 .hide
 {
     display: none;
+}
+.question-types > div
+{
+    line-height: 1.2;
+
+    display: inline-block;
+
+    width: 200px;
+    height: 80px;
+    margin: 10px;
+    padding: 15px;
+
+    cursor: pointer;
+    text-align: center;
+    vertical-align: top;
+
+    background: #ddd;
+}
+.question-types > div:hover
+{
+    color: white;
+    background: #414142;
+}
+.add-question.open:hover
+{
+    background: #f2f2f2;
+}
+.add-question.open
+{
+    cursor: default;
 }
