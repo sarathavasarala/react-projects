@@ -2,11 +2,12 @@ import React from 'react'
 let id = 1
 var AddQuestion = React.createClass({
 	getInitialState(){
-		return {errorMsg:false}
+		return {errorMsg:false, editing:false}
 	},
 	handleSubmit(e){
 		e.preventDefault()
 		if(this.refs.question.value.trim().length === 0
+		|| this.refs.one.value.trim().length === 0
 		|| this.refs.two.value.trim().length === 0
 		|| this.refs.three.value.trim().length === 0
 		|| this.refs.four.value.trim().length === 0
@@ -20,11 +21,24 @@ var AddQuestion = React.createClass({
 							options:[this.refs.one.value.trim(), this.refs.two.value.trim(), this.refs.three.value.trim(), this.refs.four.value.trim()]
 						}
 			this.props.handleSubmit(formData)
-			this.refs.question.value = this.refs.one.value = this.refs.two.value = this.refs.three.value = this.refs.four.value = ""	
-			this.setState({errorMsg:false})
+			this.resetForm()
 		}		
 	},
-	render(){
+	resetForm(){
+		this.refs.question.value = this.refs.one.value = this.refs.two.value = this.refs.three.value = this.refs.four.value = ""
+		this.setState({errorMsg:false, editing:false})
+	},
+	handleCreate(){
+		this.setState({editing:true})
+	},
+	renderClickable(){
+		return(
+				<div className="add-question" onClick={this.handleCreate}>
+					Click here to add a question
+				</div>
+			)
+	},
+	renderForm(){
 		return(				
 				<form onSubmit={this.handleSubmit}>
 					<div className="quiz-card create-card">
@@ -41,9 +55,18 @@ var AddQuestion = React.createClass({
 							<div><input name="option4" ref="four" type="text" placeholder="Option 4" required/></div>
 						</div>
 						<button type="submit"> Add </button> 
+						<button onClick={(e) => {e.preventDefault(); this.resetForm()}}> Cancel </button>
 					</div>
 				</form>
 			)
+	},
+	render(){
+		if(this.state.editing){
+			return this.renderForm()
+		}
+		else{
+			return this.renderClickable()
+		}
 	}
 })
 export default AddQuestion
