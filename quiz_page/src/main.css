@@ -206,7 +206,7 @@ body
     margin-right: 10px;
 }
 .create-card textarea,
-.create-card .option-wrapper > div input
+.create-card .option-wrapper > div input[type="text"]
 {
     font-family: 'Lato', sans-serif;
 
@@ -219,7 +219,7 @@ body
     box-shadow: none;
 }
 .create-card textarea:focus,
-.create-card .option-wrapper > div input:focus
+.create-card .option-wrapper > div input[type="text"]:focus
 {
     border: 1px solid dodgerblue;
 }
@@ -273,4 +273,23 @@ body
 .add-question.open
 {
     cursor: default;
+}
+.answerPicker{
+    background: #ddd;
+    font-size: 12px;
+    padding: 5px;
+}
+.answerPicker label span{
+    position: relative;
+    top: -2px;
+}
+.pull-right{
+    float: right;
+}
+.option-wrapper > div span.pull-right{
+    display: none;
+}
+.option-wrapper > div.answerContainer span{
+    display: block;
+    color: seagreen;
 }
