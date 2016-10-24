@@ -1,5 +1,7 @@
 import React from 'react'
 import SingleAnswerForm from './SingleAnswerForm'
+import MultipleAnswerForm from './MultipleAnswerForm'
+
 var AddQuestion = React.createClass({
 	getInitialState(){
 		return {
@@ -34,19 +36,13 @@ var AddQuestion = React.createClass({
 		return(
 				<div className="add-question open">
 					<div className="question-types">
-						<div onClick={() => {this.setState({selectionMenu:false, status:"100000"})}}> Single Answer </div>
-						<div onClick={() => {this.setState({selectionMenu:false, status:"010000"})}}> Multiple Answers (Checkbox Type) </div>
-						<div onClick={() => {this.setState({selectionMenu:false, status:"001000"})}}> Picture Options </div>
-						<div onClick={() => {this.setState({selectionMenu:false, status:"000100"})}}> True or False </div>
-						<div onClick={() => {this.setState({selectionMenu:false, status:"000010"})}}> Fill in the Blanks </div>
-						<div onClick={() => {this.setState({selectionMenu:false, status:"000001"})}}> Parajumbles </div>
+						<div onClick={() => {this.setState({selectionMenu:false, status:"10000"})}}> Single Answer </div>
+						<div onClick={() => {this.setState({selectionMenu:false, status:"01000"})}}> Multiple Answers (Checkbox Type) </div>
+						<div onClick={() => {this.setState({selectionMenu:false, status:"00100"})}}> Picture Options </div>
+						<div onClick={() => {this.setState({selectionMenu:false, status:"00010"})}}> True or False </div>
+						<div onClick={() => {this.setState({selectionMenu:false, status:"00001"})}}> Parajumbles </div>
 					</div>
 				</div>
-			)
-	},
-	checkboxAnswers(){
-		return(
-				<div>checkboxes</div>
 			)
 	},
 	pictureOptions(){
@@ -59,11 +55,6 @@ var AddQuestion = React.createClass({
 				<div>trueorfalse</div>
 			)
 	},
-	blanks(){
-		return(
-				<div>blanks</div>
-			)
-	},	
 	parajumbles(){
 		return(
 				<div> parajumbles </div>
@@ -79,27 +70,26 @@ var AddQuestion = React.createClass({
 		}
 		else{
 			switch (this.state.status) {
-				case "000000":
+				case "00000":
 					return (<div></div>)
 
-				case "100000":
+				case "10000":
 					return <SingleAnswerForm 
 								trickleUp={this.trickleUp}
 								handleCancel={this.resetForm}/>
 
-				case "010000":
-					return this.checkboxAnswers()
+				case "01000":
+					return <MultipleAnswerForm
+								trickleUp={this.trickleUp}
+								handleCancel={this.resetForm}/>
 
-				case "001000":
+				case "00100":
 					return this.pictureOptions()
 
-				case "000100":
+				case "00010":
 					return this.trueOrFalse()
 
-				case "000010":
-					return this.blanks()
-
-				case "000001":
+				case "00001":
 					return this.parajumbles()
 				
 				default:
